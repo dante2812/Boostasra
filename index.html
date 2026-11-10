@@ -4,131 +4,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASRA ELOBOOST | League of Legends</title>
+<title>ASRA ELOBOOST</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 body{
- background:#08090d;color:#f5f5f5;
+ margin:0;
  font-family:Arial,sans-serif;
+ background:#09090d;
+ color:#fff;
 }
-header{
- padding:25px 8%;display:flex;
- justify-content:space-between;align-items:center;
- border-bottom:1px solid #25252b;
+.container{
+ max-width:850px;
+ margin:35px auto;
+ padding:25px;
 }
-.logo{font-size:25px;font-weight:900;letter-spacing:2px}
-.logo span{color:#e63946}
-nav a{color:#aaa;text-decoration:none;margin-left:22px}
-.hero{
- min-height:430px;padding:100px 8%;
- background:radial-gradient(ellipse at 80% 40%,#54121c 0%,#151016 35%,#08090d 75%);
+header{text-align:center;margin-bottom:30px}
+h1{
+ color:#e50935;
+ font-size:38px;
+ letter-spacing:4px;
+ margin-bottom:8px;
 }
-.hero h1{font-size:clamp(38px,7vw,65px);margin-bottom:18px}
-.hero h1 span{color:#e63946}
-.hero p{color:#aaa;font-size:17px;line-height:1.7}
-.btn{
- display:inline-block;margin-top:28px;padding:15px 30px;
- background:#c92838;color:white;border:0;
- border-radius:5px;font-weight:bold;cursor:pointer;
+.subtitle{color:#aaa}
+.card{
+ background:#15151d;
+ border:1px solid #292936;
+ border-radius:14px;
+ padding:22px;
+ margin-bottom:20px;
 }
-section{padding:65px 8%}
-h2{font-size:30px;margin-bottom:12px}
-.sub{color:#999;margin-bottom:30px}
-.panel{
- max-width:650px;background:#121319;
- border:1px solid #292a32;border-radius:12px;
- padding:28px;
+h2{
+ color:#e50935;
+ font-size:20px;
+ margin-top:0;
 }
-label{display:block;margin:18px 0 9px;color:#ddd}
-select{
- width:100%;padding:15px;background:#090a0e;
- color:white;border:1px solid #393a44;
- border-radius:5px;font-size:15px;
+label{
+ display:block;
+ margin:15px 0 7px;
+ color:#ddd;
+ font-size:14px;
 }
-.result{
- margin-top:22px;padding:18px;
- background:#20151a;border-radius:6px;
- color:#eee;line-height:1.8;
+select,input{
+ width:100%;
+ padding:13px;
+ border-radius:8px;
+ border:1px solid #393945;
+ background:#0d0d13;
+ color:white;
+ font-size:15px;
+ outline:none;
 }
+select:focus,input:focus{border-color:#e50935}
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+.checkbox{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin-top:18px;
+}
+.checkbox input{
+ width:18px;
+ height:18px;
+ accent-color:#e50935;
+}
+.checkbox label{margin:0}
+button{
+ width:100%;
+ padding:15px;
+ margin-top:22px;
+ border:0;
+ border-radius:9px;
+ background:#e50935;
+ color:white;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
+}
+button:hover{background:#bd082c}
+#result{
+ display:none;
+ margin-top:20px;
+ padding:20px;
+ background:#101018;
+ border:1px solid #e50935;
+ border-radius:10px;
+}
+.total{
+ color:#e50935;
+ font-size:30px;
+ font-weight:bold;
+ margin:12px 0;
+}
+.detail{
+ color:#ccc;
+ font-size:14px;
+ line-height:1.8;
+}
+.warning{color:#ff6b6b;margin-top:12px}
 footer{
- padding:30px;text-align:center;color:#777;
- border-top:1px solid #25252b;
+ text-align:center;
+ color:#666;
+ font-size:12px;
+ margin-top:30px;
+}
+@media(max-width:600px){
+ .container{padding:15px;margin:15px auto}
+ .grid{grid-template-columns:1fr}
+ h1{font-size:30px}
 }
 </style>
 </head>
+
 <body>
+<div class="container">
 
 <header>
- <div class="logo">ASRA <span>ELOBOOST</span></div>
- <nav><a href="#hizmetler">Hizmetler</a><a href="#siparis">Sipariş</a></nav>
+<h1>ASRA ELOBOOST</h1>
+<div class="subtitle">Rankını yükselt, zirveye ulaş.</div>
 </header>
 
-<div class="hero">
- <h1>RANKINI <span>YÜKSELT.</span></h1>
- <p>Hedefine ulaş. Ligini yükselt.<br>
- ASRA ELOBOOST ile rekabette bir adım öne geç.</p>
- <a href="#siparis" class="btn">SİPARİŞ OLUŞTUR</a>
+<div class="card">
+<h2>1. Rank Bilgileri</h2>
+
+<div class="grid">
+<div>
+<label>Mevcut Lig</label>
+<select id="currentLeague"></select>
+</div>
+<div>
+<label>Mevcut Kademe</label>
+<select id="currentRank"></select>
+</div>
+<div>
+<label>Hedef Lig</label>
+<select id="targetLeague"></select>
+</div>
+<div>
+<label>Hedef Kademe</label>
+<select id="targetRank"></select>
+</div>
 </div>
 
-<section id="hizmetler">
- <h2>ASRA ELOBOOST</h2>
- <p class="sub">League of Legends rank hizmetleri</p>
- <div class="panel">
-  <h3>Rankını belirle</h3>
-  <p class="sub">Mevcut ve hedef ligini seç.</p>
+<label>Mevcut LP</label>
+<input id="currentLP" type="number" min="0" max="99"
+placeholder="LP değerini buraya giriniz">
 
-  <label>Mevcut Ligin</label>
-  <select id="current">
-   <option>Demir</option>
-   <option>Bronz</option>
-   <option>Gümüş</option>
-   <option>Altın</option>
-   <option>Platin</option>
-   <option>Zümrüt</option>
-   <option>Elmas</option>
-  </select>
+<label>Galibiyet Başına LP Kazanımı</label>
+<select id="lpGain">
+<option value="">LP kazanımını seçiniz</option>
+<option value="15">+15 LP</option>
+<option value="16">+16 LP</option>
+<option value="17">+17 LP</option>
+<option value="18">+18 LP</option>
+<option value="19">+19 LP</option>
+<option value="20">+20 LP</option>
+<option value="21">+21 LP</option>
+<option value="22">+22 LP</option>
+<option value="23">+23 LP</option>
+<option value="24">+24 LP</option>
+<option value="25">+25 LP</option>
+<option value="26">+26 LP</option>
+<option value="27">+27 LP</option>
+<option value="28">+28 LP</option>
+<option value="29">+29 LP</option>
+<option value="30">+30 LP</option>
+</select>
+</div>
 
-  <label>Hedef Ligin</label>
-  <select id="target">
-   <option>Demir</option>
-   <option>Bronz</option>
-   <option>Gümüş</option>
-   <option>Altın</option>
-   <option>Platin</option>
-   <option>Zümrüt</option>
-   <option selected>Elmas</option>
-  </select>
+<div class="card">
+<h2>2. Boost Seçenekleri</h2>
 
-  <label>Oyun Modu</label>
-  <select id="mode">
-   <option>Solo Boost</option>
-   <option>Duo Boost</option>
-  </select>
+<label>Oyun Modu</label>
+<select id="gameMode">
+<option value="Solo Boost">Solo Boost</option>
+<option value="Duo Boost">Duo Boost</option>
+</select>
 
-  <button class="btn" onclick="createOrder()">TALEP OLUŞTUR</button>
-  <div id="result" class="result" hidden></div>
- </div>
-</section>
+<label>Rol Seçimi</label>
+<select id="role">
+<option value="0">Rol seçilmedi (%0)</option>
+<option value="20">ADC (+%20)</option>
+<option value="15">Mid (+%15)</option>
+<option value="20">Jungle (+%20)</option>
+<option value="30">Support (+%30)</option>
+<option value="30">Top (+%30)</option>
+<option value="30">Canlı Yayın (+%30)</option>
+</select>
 
-<footer>
- ASRA ELOBOOST © 2026 | Tüm hakları saklıdır.
-</footer>
+<div class="checkbox">
+<input type="checkbox" id="extraWin">
+<label for="extraWin">Boost sonrası +1 galibiyet (+50 TL)</label>
+</div>
+
+<button onclick="calculatePrice()">FİYATI HESAPLA</button>
+
+<div id="error" class="warning"></div>
+
+<div id="result">
+<h2>Fiyat Detayı</h2>
+<div id="breakdown" class="detail"></div>
+<div class="total" id="totalPrice"></div>
+</div>
+</div>
+
+<footer>ASRA ELOBOOST © 2026</footer>
+</div>
 
 <script>
-function createOrder(){
- const current=document.getElementById("current").value;
- const target=document.getElementById("target").value;
- const mode=document.getElementById("mode").value;
+const leagues=[
+ "Demir","Bronz","Gümüş","Altın",
+ "Platin","Zümrüt","Elmas"
+];
+
+const ranks={
+ "Demir":["IV","III","II","I"],
+ "Bronz":["IV","III","II","I"],
+ "Gümüş":["IV","III","II","I"],
+ "Altın":["IV","III","II","I"],
+ "Platin":["IV","III","II","I"],
+ "Zümrüt":["IV","III","II","I"],
+ "Elmas":["IV"]
+};
+
+const prices={
+ "Demir":40,
+ "Bronz":50,
+ "Gümüş":60,
+ "Altın":70,
+ "Platin":80,
+ "Zümrüt":90,
+ "Elmas":100
+};
+
+const currentLeague=document.getElementById("currentLeague");
+const targetLeague=document.getElementById("targetLeague");
+const currentRank=document.getElementById("currentRank");
+const targetRank=document.getElementById("targetRank");
+
+function fillLeagues(select){
+ select.innerHTML="";
+ leagues.forEach(league=>{
+  const option=document.createElement("option");
+  option.value=league;
+  option.textContent=league;
+  select.appendChild(option);
+ });
+}
+
+function fillRanks(leagueSelect,rankSelect){
+ const league=leagueSelect.value;
+ rankSelect.innerHTML="";
+ ranks[league].forEach(rank=>{
+  const option=document.createElement("option");
+  option.value=rank;
+  option.textContent=rank;
+  rankSelect.appendChild(option);
+ });
+}
+
+fillLeagues(currentLeague);
+fillLeagues(targetLeague);
+
+currentLeague.value="Demir";
+targetLeague.value="Bronz";
+
+fillRanks(currentLeague,currentRank);
+fillRanks(targetLeague,targetRank);
+
+currentLeague.addEventListener("change",()=>{
+ fillRanks(currentLeague,currentRank);
+});
+
+targetLeague.addEventListener("change",()=>{
+ fillRanks(targetLeague,targetRank);
+});
+
+function position(league,rank){
+ return leagues.indexOf(league)*4+
+ ranks[league].indexOf(rank);
+}
+
+function calculatePrice(){
+
+ const error=document.getElementById("error");
  const result=document.getElementById("result");
- result.hidden=false;
- result.innerHTML=
- "<strong>Sipariş talebin</strong><br>"+
- "Mevcut lig: "+current+"<br>"+
- "Hedef lig: "+target+"<br>"+
- "Hizmet: "+mode+"<br><br>"+
- "Talebin hazır. İletişim sistemi sonraki aşamada eklenecek.";
+ const breakdown=document.getElementById("breakdown");
+
+ error.textContent="";
+ result.style.display="none";
+
+ const cl=currentLeague.value;
+ const cr=currentRank.value;
+ const tl=targetLeague.value;
+ const tr=targetRank.value;
+
+ const lpInput=document.getElementById("currentLP").value;
+ const gainInput=document.getElementById("lpGain").value;
+
+ if(lpInput===""){
+  error.textContent="Lütfen mevcut LP değerini giriniz.";
+  return;
+ }
+
+ const lp=Number(lpInput);
+
+ if(!Number.isInteger(lp)||lp<0||lp>99){
+  error.textContent="Mevcut LP 0 ile 99 arasında tam sayı olmalıdır.";
+  return;
+ }
+
+ if(gainInput===""){
+  error.textContent="Lütfen galibiyet başına LP kazanımını seçiniz.";
+  return;
+ }
+
+ const gain=Number(gainInput);
+
+ const start=position(cl,cr);
+ const end=position(tl,tr);
+
+ if(end<=start){
+  error.textContent="Hedef rank, mevcut ranktan yüksek olmalıdır.";
+  return;
+ }
+
+ let base=0;
+ let details=[];
+
+ for(let i=start;i<end;i++){
+
+  let nextLeague=leagues[Math.floor((i+1)/4)];
+  let stepPrice=prices[nextLeague];
+
+  if(gain<20){
+   stepPrice+=10;
+  }
+
+  base+=stepPrice;
+
+  const nextRankIndex=(i+1)%4;
+  const nextRankName=nextLeague==="Elmas"
+   ? "IV"
+   : ranks[nextLeague][nextRankIndex];
+
+  details.push(
+   nextLeague+" "+nextRankName+": "+stepPrice+" TL"
+  );
+ }
+
+ const roleValue=Number(document.getElementById("role").value);
+ const roleName=document.getElementById("role")
+ .options[document.getElementById("role").selectedIndex].text;
+
+ const roleExtra=base*roleValue/100;
+
+ const extraWin=document.getElementById("extraWin").checked;
+ const winExtra=extraWin?50:0;
+
+ const total=base+roleExtra+winExtra;
+
+ details.push("<br><b>Kademe toplamı: "+base+" TL</b>");
+ details.push("Rol ("+roleName+"): "+roleExtra.toFixed(2)+" TL");
+
+ if(extraWin){
+  details.push("+1 galibiyet: 50 TL");
+ }
+
+ details.push("Oyun modu: "+
+ document.getElementById("gameMode").value+
+ " (ek ücret yok)");
+
+ if(gain<20){
+  details.push("Düşük LP kazanımı ek ücreti kademe fiyatlarına dahil edildi.");
+ }
+
+ breakdown.innerHTML=details.join("<br>");
+
+ document.getElementById("totalPrice").textContent=
+ "TOPLAM: "+total.toFixed(2)+" TL";
+
+ result.style.display="block";
 }
 </script>
-
 </body>
 </html>
+
