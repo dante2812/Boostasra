@@ -7,124 +7,45 @@
 <title>ASRA ELOBOOST</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#09090d;
- color:#fff;
-}
-.container{
- max-width:850px;
- margin:35px auto;
- padding:25px;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#09090d;color:#fff}
+.container{max-width:850px;margin:35px auto;padding:20px}
 header{text-align:center;margin-bottom:30px}
-h1{
- color:#e50935;
- font-size:38px;
- letter-spacing:4px;
- margin-bottom:8px;
-}
+h1{color:#e50935;font-size:38px;letter-spacing:4px;margin-bottom:8px}
 .subtitle{color:#aaa}
-.card{
- background:#15151d;
- border:1px solid #292936;
- border-radius:14px;
- padding:22px;
- margin-bottom:20px;
-}
-h2{
- color:#e50935;
- font-size:20px;
- margin-top:0;
-}
-label{
- display:block;
- margin:15px 0 7px;
- color:#ddd;
- font-size:14px;
-}
-select,input{
- width:100%;
- padding:13px;
- border-radius:8px;
- border:1px solid #393945;
- background:#0d0d13;
- color:white;
- font-size:15px;
- outline:none;
-}
-select:focus,input:focus{border-color:#e50935}
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:15px;
-}
-.checkbox{
- display:flex;
- align-items:center;
- gap:10px;
- margin-top:18px;
-}
-.checkbox input{
- width:18px;
- height:18px;
- accent-color:#e50935;
-}
+.card{background:#15151d;border:1px solid #292936;border-radius:14px;padding:22px;margin-bottom:20px}
+h2{color:#e50935;font-size:20px;margin-top:0}
+label{display:block;margin:15px 0 7px;color:#ddd;font-size:14px}
+input,select{width:100%;padding:13px;border-radius:8px;border:1px solid #393945;background:#0d0d13;color:white;font-size:15px;outline:none}
+input:focus,select:focus{border-color:#e50935}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.checkbox{display:flex;align-items:center;gap:10px;margin-top:18px}
+.checkbox input{width:18px;height:18px;accent-color:#e50935}
 .checkbox label{margin:0}
-button{
- width:100%;
- padding:15px;
- margin-top:22px;
- border:0;
- border-radius:9px;
- background:#e50935;
- color:white;
- font-size:17px;
- font-weight:bold;
- cursor:pointer;
-}
+button{width:100%;padding:15px;margin-top:22px;border:0;border-radius:9px;background:#e50935;color:white;font-size:17px;font-weight:bold;cursor:pointer}
 button:hover{background:#bd082c}
-#result{
- display:none;
- margin-top:20px;
- padding:20px;
- background:#101018;
- border:1px solid #e50935;
- border-radius:10px;
-}
-.total{
- color:#e50935;
- font-size:30px;
- font-weight:bold;
- margin:12px 0;
-}
-.detail{
- color:#ccc;
- font-size:14px;
- line-height:1.8;
-}
-.warning{color:#ff6b6b;margin-top:12px}
-footer{
- text-align:center;
- color:#666;
- font-size:12px;
- margin-top:30px;
-}
+#result{display:none;margin-top:20px;padding:20px;background:#101018;border:1px solid #e50935;border-radius:10px}
+.total{color:#e50935;font-size:30px;font-weight:bold;margin:12px 0}
+.detail{color:#ccc;font-size:14px;line-height:1.9;overflow-wrap:anywhere}
+.message{margin-top:15px;padding:13px;border-radius:8px;display:none;line-height:1.5}
+.success{background:#12321f;color:#8df0a9}
+.error{background:#3a151a;color:#ff9ba6}
+.note{font-size:12px;color:#999;line-height:1.6}
+.badge{display:inline-block;color:#e50935;border:1px solid #e50935;border-radius:5px;padding:4px 8px;font-size:12px;margin-top:5px}
+footer{text-align:center;color:#666;font-size:12px;margin-top:30px}
 @media(max-width:600px){
- .container{padding:15px;margin:15px auto}
- .grid{grid-template-columns:1fr}
- h1{font-size:30px}
+.container{padding:14px;margin:15px auto}
+.grid{grid-template-columns:1fr}
+h1{font-size:30px}
 }
 </style>
 </head>
-
 <body>
 <div class="container">
 
 <header>
 <h1>ASRA ELOBOOST</h1>
 <div class="subtitle">Rankını yükselt, zirveye ulaş.</div>
+<div class="badge">PROFESYONEL ELO BOOST</div>
 </header>
 
 <div class="card">
@@ -151,27 +72,16 @@ footer{
 
 <label>Mevcut LP</label>
 <input id="currentLP" type="number" min="0" max="99"
-placeholder="LP değerini buraya giriniz">
+step="1" placeholder="LP değerini buraya giriniz">
 
 <label>Galibiyet Başına LP Kazanımı</label>
 <select id="lpGain">
 <option value="">LP kazanımını seçiniz</option>
-<option value="15">+15 LP</option>
-<option value="16">+16 LP</option>
-<option value="17">+17 LP</option>
-<option value="18">+18 LP</option>
-<option value="19">+19 LP</option>
-<option value="20">+20 LP</option>
-<option value="21">+21 LP</option>
-<option value="22">+22 LP</option>
-<option value="23">+23 LP</option>
-<option value="24">+24 LP</option>
-<option value="25">+25 LP</option>
-<option value="26">+26 LP</option>
-<option value="27">+27 LP</option>
-<option value="28">+28 LP</option>
-<option value="29">+29 LP</option>
-<option value="30">+30 LP</option>
+<script>
+for(let i=15;i<=30;i++){
+document.write('<option value="'+i+'">+'+i+' LP</option>');
+}
+</script>
 </select>
 </div>
 
@@ -192,204 +102,318 @@ placeholder="LP değerini buraya giriniz">
 <option value="20">Jungle (+%20)</option>
 <option value="30">Support (+%30)</option>
 <option value="30">Top (+%30)</option>
-<option value="30">Canlı Yayın (+%30)</option>
 </select>
+
+<div class="checkbox">
+<input type="checkbox" id="liveStream">
+<label for="liveStream">Canlı Yayın İstiyorum (+%30)</label>
+</div>
 
 <div class="checkbox">
 <input type="checkbox" id="extraWin">
 <label for="extraWin">Boost sonrası +1 galibiyet (+50 TL)</label>
 </div>
+</div>
 
-<button onclick="calculatePrice()">FİYATI HESAPLA</button>
+<div class="card">
+<h2>3. İletişim Bilgileri</h2>
 
-<div id="error" class="warning"></div>
+<label>Adınız</label>
+<input id="customerName" type="text" maxlength="80"
+placeholder="Adınızı giriniz">
+
+<label>E-posta Adresiniz</label>
+<input id="customerEmail" type="email" maxlength="150"
+placeholder="ornek@gmail.com">
+
+<p class="note">
+Siparişinizle ilgili bilgilendirme ve iletişim için e-posta adresiniz kullanılacaktır.
+</p>
+
+<button id="calculateButton" onclick="calculatePrice()">
+FİYATI HESAPLA
+</button>
 
 <div id="result">
 <h2>Fiyat Detayı</h2>
 <div id="breakdown" class="detail"></div>
 <div class="total" id="totalPrice"></div>
+
+<button id="orderButton" onclick="createOrder()">
+TALEP OLUŞTUR
+</button>
+
+<div id="orderMessage" class="message"></div>
 </div>
+
+<div id="errorMessage" class="message error"></div>
 </div>
 
 <footer>ASRA ELOBOOST © 2026</footer>
 </div>
 
 <script>
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxk1AHCqaKfUVgMNe0GfyLOszGuhHXRNn986Jh_rp9G5hcr-e-v5fl-THGWEFMEsW7CnA/exec";
+
 const leagues=[
- "Demir","Bronz","Gümüş","Altın",
- "Platin","Zümrüt","Elmas"
+"Demir","Bronz","Gümüş","Altın",
+"Platin","Zümrüt","Elmas"
 ];
 
 const ranks={
- "Demir":["IV","III","II","I"],
- "Bronz":["IV","III","II","I"],
- "Gümüş":["IV","III","II","I"],
- "Altın":["IV","III","II","I"],
- "Platin":["IV","III","II","I"],
- "Zümrüt":["IV","III","II","I"],
- "Elmas":["IV"]
+"Demir":["IV","III","II","I"],
+"Bronz":["IV","III","II","I"],
+"Gümüş":["IV","III","II","I"],
+"Altın":["IV","III","II","I"],
+"Platin":["IV","III","II","I"],
+"Zümrüt":["IV","III","II","I"],
+"Elmas":["IV"]
 };
 
 const prices={
- "Demir":40,
- "Bronz":50,
- "Gümüş":60,
- "Altın":70,
- "Platin":80,
- "Zümrüt":90,
- "Elmas":100
+"Demir":40,
+"Bronz":50,
+"Gümüş":60,
+"Altın":70,
+"Platin":80,
+"Zümrüt":90,
+"Elmas":100
 };
 
-const currentLeague=document.getElementById("currentLeague");
-const targetLeague=document.getElementById("targetLeague");
-const currentRank=document.getElementById("currentRank");
-const targetRank=document.getElementById("targetRank");
+const $=id=>document.getElementById(id);
 
 function fillLeagues(select){
- select.innerHTML="";
- leagues.forEach(league=>{
-  const option=document.createElement("option");
-  option.value=league;
-  option.textContent=league;
-  select.appendChild(option);
- });
+select.innerHTML="";
+leagues.forEach(league=>{
+const option=document.createElement("option");
+option.value=league;
+option.textContent=league;
+select.appendChild(option);
+});
 }
 
 function fillRanks(leagueSelect,rankSelect){
- const league=leagueSelect.value;
- rankSelect.innerHTML="";
- ranks[league].forEach(rank=>{
-  const option=document.createElement("option");
-  option.value=rank;
-  option.textContent=rank;
-  rankSelect.appendChild(option);
- });
+rankSelect.innerHTML="";
+ranks[leagueSelect.value].forEach(rank=>{
+const option=document.createElement("option");
+option.value=rank;
+option.textContent=rank;
+rankSelect.appendChild(option);
+});
 }
 
-fillLeagues(currentLeague);
-fillLeagues(targetLeague);
+fillLeagues($("currentLeague"));
+fillLeagues($("targetLeague"));
 
-currentLeague.value="Demir";
-targetLeague.value="Bronz";
+$("currentLeague").value="Demir";
+$("targetLeague").value="Demir";
 
-fillRanks(currentLeague,currentRank);
-fillRanks(targetLeague,targetRank);
+fillRanks($("currentLeague"),$("currentRank"));
+fillRanks($("targetLeague"),$("targetRank"));
 
-currentLeague.addEventListener("change",()=>{
- fillRanks(currentLeague,currentRank);
+$("currentRank").value="IV";
+$("targetRank").value="III";
+
+$("currentLeague").addEventListener("change",()=>{
+fillRanks($("currentLeague"),$("currentRank"));
 });
 
-targetLeague.addEventListener("change",()=>{
- fillRanks(targetLeague,targetRank);
+$("targetLeague").addEventListener("change",()=>{
+fillRanks($("targetLeague"),$("targetRank"));
 });
 
 function position(league,rank){
- return leagues.indexOf(league)*4+
- ranks[league].indexOf(rank);
+return leagues.indexOf(league)*4+
+ranks[league].indexOf(rank);
+}
+
+let currentOrder=null;
+
+function showError(message){
+$("errorMessage").textContent=message;
+$("errorMessage").style.display="block";
 }
 
 function calculatePrice(){
 
- const error=document.getElementById("error");
- const result=document.getElementById("result");
- const breakdown=document.getElementById("breakdown");
+$("errorMessage").style.display="none";
+$("result").style.display="none";
+$("orderMessage").style.display="none";
+currentOrder=null;
 
- error.textContent="";
- result.style.display="none";
+const lpText=$("currentLP").value;
+const gainText=$("lpGain").value;
 
- const cl=currentLeague.value;
- const cr=currentRank.value;
- const tl=targetLeague.value;
- const tr=targetRank.value;
+if(lpText===""){
+showError("Lütfen mevcut LP değerini giriniz.");
+return;
+}
 
- const lpInput=document.getElementById("currentLP").value;
- const gainInput=document.getElementById("lpGain").value;
+const lp=Number(lpText);
 
- if(lpInput===""){
-  error.textContent="Lütfen mevcut LP değerini giriniz.";
-  return;
- }
+if(!Number.isInteger(lp)||lp<0||lp>99){
+showError("Mevcut LP 0 ile 99 arasında tam sayı olmalıdır.");
+return;
+}
 
- const lp=Number(lpInput);
+if(!gainText){
+showError("Lütfen galibiyet başına LP kazanımını seçiniz.");
+return;
+}
 
- if(!Number.isInteger(lp)||lp<0||lp>99){
-  error.textContent="Mevcut LP 0 ile 99 arasında tam sayı olmalıdır.";
-  return;
- }
+const cl=$("currentLeague").value;
+const cr=$("currentRank").value;
+const tl=$("targetLeague").value;
+const tr=$("targetRank").value;
 
- if(gainInput===""){
-  error.textContent="Lütfen galibiyet başına LP kazanımını seçiniz.";
-  return;
- }
+const start=position(cl,cr);
+const end=position(tl,tr);
 
- const gain=Number(gainInput);
+if(end<=start){
+showError("Hedef rank mevcut ranktan yüksek olmalıdır.");
+return;
+}
 
- const start=position(cl,cr);
- const end=position(tl,tr);
+const gain=Number(gainText);
+let base=0;
+let details=[];
 
- if(end<=start){
-  error.textContent="Hedef rank, mevcut ranktan yüksek olmalıdır.";
-  return;
- }
+for(let i=start;i<end;i++){
 
- let base=0;
- let details=[];
+const nextLeague=leagues[Math.floor((i+1)/4)];
+let stepPrice=prices[nextLeague];
 
- for(let i=start;i<end;i++){
+if(gain<20){
+stepPrice+=10;
+}
 
-  let nextLeague=leagues[Math.floor((i+1)/4)];
-  let stepPrice=prices[nextLeague];
+base+=stepPrice;
 
-  if(gain<20){
-   stepPrice+=10;
-  }
+const nextRankIndex=(i+1)%4;
+const nextRank=nextLeague==="Elmas"
+?"IV":ranks[nextLeague][nextRankIndex];
 
-  base+=stepPrice;
+details.push(
+nextLeague+" "+nextRank+": "+stepPrice+" TL"
+);
+}
 
-  const nextRankIndex=(i+1)%4;
-  const nextRankName=nextLeague==="Elmas"
-   ? "IV"
-   : ranks[nextLeague][nextRankIndex];
+const rolePercent=Number($("role").value);
+const roleText=$("role").selectedOptions[0].textContent;
+const live=$("liveStream").checked;
+const extraWin=$("extraWin").checked;
 
-  details.push(
-   nextLeague+" "+nextRankName+": "+stepPrice+" TL"
-  );
- }
+const roleExtra=base*rolePercent/100;
+const liveExtra=live?base*0.30:0;
+const winExtra=extraWin?50:0;
 
- const roleValue=Number(document.getElementById("role").value);
- const roleName=document.getElementById("role")
- .options[document.getElementById("role").selectedIndex].text;
+const total=base+roleExtra+liveExtra+winExtra;
 
- const roleExtra=base*roleValue/100;
+details.push("<br><b>Kademe toplamı: "+base+" TL</b>");
+details.push("Rol "+roleText+": "+roleExtra.toFixed(2)+" TL");
+details.push("Canlı yayın: "+(live?"%30 = "+liveExtra.toFixed(2)+" TL":"Seçilmedi"));
+details.push("Ekstra galibiyet: "+(extraWin?"50 TL":"Seçilmedi"));
+details.push("Oyun modu: "+$("gameMode").value+" (ek ücret yok)");
 
- const extraWin=document.getElementById("extraWin").checked;
- const winExtra=extraWin?50:0;
+if(gain<20){
+details.push("LP kazanımı +20 altında: kademe başına +10 TL uygulandı.");
+}
 
- const total=base+roleExtra+winExtra;
+$("breakdown").innerHTML=details.join("<br>");
+$("totalPrice").textContent="TOPLAM: "+total.toFixed(2)+" TL";
 
- details.push("<br><b>Kademe toplamı: "+base+" TL</b>");
- details.push("Rol ("+roleName+"): "+roleExtra.toFixed(2)+" TL");
+currentOrder={
+currentRank:cl+" "+cr,
+targetRank:tl+" "+tr,
+currentLP:lp,
+lpGain:gain,
+gameMode:$("gameMode").value,
+role:roleText,
+liveStream:live?"Evet (+%30)":"Hayır",
+extraWin:extraWin?"Evet (+50 TL)":"Hayır",
+totalPrice:total.toFixed(2)+" TL"
+};
 
- if(extraWin){
-  details.push("+1 galibiyet: 50 TL");
- }
+$("result").style.display="block";
+}
 
- details.push("Oyun modu: "+
- document.getElementById("gameMode").value+
- " (ek ücret yok)");
+async function createOrder(){
 
- if(gain<20){
-  details.push("Düşük LP kazanımı ek ücreti kademe fiyatlarına dahil edildi.");
- }
+const name=$("customerName").value.trim();
+const email=$("customerEmail").value.trim();
 
- breakdown.innerHTML=details.join("<br>");
+if(!currentOrder){
+showError("Önce fiyat hesaplamalısınız.");
+return;
+}
 
- document.getElementById("totalPrice").textContent=
- "TOPLAM: "+total.toFixed(2)+" TL";
+if(name.length<2){
+showError("Lütfen adınızı giriniz.");
+return;
+}
 
- result.style.display="block";
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+showError("Lütfen geçerli bir e-posta adresi giriniz.");
+return;
+}
+
+const button=$("orderButton");
+const message=$("orderMessage");
+
+button.disabled=true;
+button.textContent="GÖNDERİLİYOR...";
+message.style.display="none";
+
+const payload={
+...currentOrder,
+customerName:name,
+customerEmail:email,
+website:""
+};
+
+try{
+await fetch(SCRIPT_URL,{
+method:"POST",
+mode:"no-cors",
+headers:{
+"Content-Type":"text/plain;charset=utf-8"
+},
+body:JSON.stringify(payload)
+});
+
+message.className="message success";
+message.textContent=
+"Talebiniz gönderim için iletildi. Siparişinizin alındığını doğrulamak için e-posta kutunuzu kontrol edin veya bizimle canlı destekten iletişime geçin.";
+message.style.display="block";
+
+button.textContent="TALEP GÖNDERİLDİ";
+
+}catch(error){
+message.className="message error";
+message.textContent=
+"Gönderim sırasında bağlantı hatası oluştu. Lütfen tekrar deneyiniz.";
+message.style.display="block";
+
+button.disabled=false;
+button.textContent="TEKRAR DENE";
+}
 }
 </script>
+
+<!-- TAWK.TO CANLI DESTEK -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6af2f196006c513c44ad8bd4/1k72fvdje';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!-- TAWK.TO SON -->
+
 </body>
 </html>
-
